@@ -1,0 +1,16 @@
+[
+{
+  "modid": "gtconstruct",
+  "name": "Greg's Construct",
+  "description": " An addon for GregTech Community Edition and Tinkers' Construct, adding integration between the 2 mods",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TheEmosewaPixel"],
+  "credits": "The creators of GTCE and Tinkers' Construct.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["gregtech"]
+}
+]
