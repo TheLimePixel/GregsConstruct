@@ -19,7 +19,7 @@ public class Removal {
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void smeltingRemoval(TinkerRegisterEvent.MeltingRegisterEvent event) {
         for (Material mat : Material.MATERIAL_REGISTRY)
-            if (mat instanceof IngotMaterial && ((IngotMaterial) mat).blastFurnaceTemperature > 0 && (matches(event, OrePrefix.ore, mat) || matches(event, OrePrefix.dust, mat) || matches(event, OrePrefix.dustSmall, mat)))
+            if (mat instanceof IngotMaterial && ((IngotMaterial) mat).blastFurnaceTemperature > 0 && (matches(event, OrePrefix.ore, mat) || matches(event, OrePrefix.dust, mat) || matches(event, OrePrefix.dustSmall, mat) || matches(event, OrePrefix.dustTiny, mat)))
                 event.setCanceled(true);
         if (event.getRecipe().output == Materials.Glass.getFluid(1000) || event.getRecipe().output == Materials.Glass.getFluid(375))
             event.setCanceled(true);

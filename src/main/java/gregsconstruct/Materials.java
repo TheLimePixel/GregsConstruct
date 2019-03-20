@@ -17,11 +17,11 @@ import slimeknights.tconstruct.shared.TinkerCommons;
 import java.util.ArrayList;
 
 public class Materials {
-    public static ArrayList<slimeknights.tconstruct.library.materials.Material> ingotMaterials = new ArrayList<>();
-    public static ArrayList<IngotMaterial> GtIngotmaterials = new ArrayList<>();
+    private static ArrayList<slimeknights.tconstruct.library.materials.Material> ingotMaterials = new ArrayList<>();
+    private static ArrayList<IngotMaterial> GtIngotmaterials = new ArrayList<>();
 
-    public static ArrayList<slimeknights.tconstruct.library.materials.Material> gemMaterials = new ArrayList<>();
-    public static ArrayList<GemMaterial> GtGemmaterials = new ArrayList<>();
+    private static ArrayList<slimeknights.tconstruct.library.materials.Material> gemMaterials = new ArrayList<>();
+    private static ArrayList<GemMaterial> GtGemmaterials = new ArrayList<>();
 
     public static void preInit() {
         for (Material mat : Material.MATERIAL_REGISTRY) {
@@ -71,6 +71,7 @@ public class Materials {
                     TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreBasalt, mat).toString(), dust.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
                     TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.dust, mat).toString(), dust.getMaterialFluid(), 144);
                     TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.dustSmall, mat).toString(), dust.getMaterialFluid(), 36);
+                    TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.dustTiny, mat).toString(), dust.getMaterialFluid(), 16);
                 }
             }
         }
@@ -122,6 +123,10 @@ public class Materials {
         TinkerRegistry.registerAlloy(gregtech.api.unification.material.Materials.TinAlloy.getFluid(2),
                 gregtech.api.unification.material.Materials.Iron.getFluid(1),
                 gregtech.api.unification.material.Materials.Tin.getFluid(1));
+
+        TinkerRegistry.registerAlloy(gregtech.api.unification.material.Materials.Invar.getFluid(3),
+                gregtech.api.unification.material.Materials.Iron.getFluid(1),
+                gregtech.api.unification.material.Materials.Nickel.getFluid(1));
 
         TinkerRegistry.registerAlloy(gregtech.api.unification.material.Materials.BatteryAlloy.getFluid(5),
                 gregtech.api.unification.material.Materials.Lead.getFluid(4),
