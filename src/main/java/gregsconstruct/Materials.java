@@ -4,15 +4,12 @@ import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.type.*;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
+import net.minecraft.init.Items;
 import slimeknights.tconstruct.common.config.Config;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
-import slimeknights.tconstruct.library.smeltery.CastingRecipe;
-import slimeknights.tconstruct.shared.TinkerCommons;
 
 import java.util.ArrayList;
 
@@ -61,16 +58,7 @@ public class Materials {
                     TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreEndstone, mat).toString(), dust.directSmelting.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
                     TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreBlackgranite, mat).toString(), dust.directSmelting.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
                     TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreBasalt, mat).toString(), dust.directSmelting.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
-                } else if (dust.hasFlag(DustMaterial.MatFlags.SMELT_INTO_FLUID)) {
-                    TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.ore, mat).toString(), dust.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
-                    TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreSand, mat).toString(), dust.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
-                    TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreRedgranite, mat).toString(), dust.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
-                    TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreNetherrack, mat).toString(), dust.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
-                    TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreMarble, mat).toString(), dust.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
-                    TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreGravel, mat).toString(), dust.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
-                    TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreEndstone, mat).toString(), dust.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
-                    TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreBlackgranite, mat).toString(), dust.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
-                    TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.oreBasalt, mat).toString(), dust.getMaterialFluid(), (int) (144 * dust.smeltingMultiplier * Config.oreToIngotRatio));
+                } else if (dust.hasFlag(DustMaterial.MatFlags.SMELT_INTO_FLUID) && mat != gregtech.api.unification.material.Materials.Glass && mat != gregtech.api.unification.material.Materials.Ice) {
                     TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.dust, mat).toString(), dust.getMaterialFluid(), 144);
                     TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.dustSmall, mat).toString(), dust.getMaterialFluid(), 36);
                     TinkerRegistry.registerMelting(new UnificationEntry(OrePrefix.dustTiny, mat).toString(), dust.getMaterialFluid(), 16);
@@ -146,16 +134,16 @@ public class Materials {
                 gregtech.api.unification.material.Materials.Aluminium.getFluid(2),
                 gregtech.api.unification.material.Materials.Magnesium.getFluid(1));
 
-        TinkerRegistry.registerMelting("sand", gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 144);
-        TinkerRegistry.registerMelting("blockGlass", gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 144);
-        TinkerRegistry.registerMelting("paneGlass", gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 54);
-        TinkerRegistry.registerTableCasting(new
+        TinkerRegistry.registerAlloy(gregtech.api.unification.material.Materials.CobaltBrass.getFluid(9),
+                gregtech.api.unification.material.Materials.Brass.getFluid(7),
+                gregtech.api.unification.material.Materials.Aluminium.getFluid(1),
+                gregtech.api.unification.material.Materials.Sodium.getFluid(1));
 
-                CastingRecipe(new ItemStack(Blocks.GLASS_PANE), null, gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 54));
-    }
-
-    public static void postInit() {
-        TinkerRegistry.registerBasinCasting(new CastingRecipe(new ItemStack(TinkerCommons.blockClearGlass), gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 144, 120));
+        TinkerRegistry.registerMelting("dustGlass", gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 1000);
+        TinkerRegistry.registerMelting("dustQuartzite", gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 1000);
+        TinkerRegistry.registerMelting("plateGlass", gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 1000);
+        TinkerRegistry.registerMelting(Items.GLASS_BOTTLE, gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 1000);
+        TinkerRegistry.registerMelting("gemGlass", gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 1000);
     }
 
     private static String upperCase(Material mat) {
