@@ -57,7 +57,7 @@ public class GtRecipes {
         List<ItemStack> inputs = new ArrayList<>();
         for (ItemStack s : itemInputs)
             inputs.add(s);
-        RecipeMaps.FLUID_EXTRACTION_RECIPES.removeRecipe(RecipeMaps.FLUID_EXTRACTION_RECIPES.findRecipe(Integer.MAX_VALUE, inputs, Collections.EMPTY_LIST));
+        RecipeMaps.FLUID_EXTRACTION_RECIPES.removeRecipe(RecipeMaps.FLUID_EXTRACTION_RECIPES.findRecipe(Integer.MAX_VALUE, inputs, Collections.EMPTY_LIST, Integer.MAX_VALUE));
     }
 
     private static void removeRecipesByInputs(ItemStack[] itemInputs, FluidStack[] fluidInputs) {
@@ -67,7 +67,7 @@ public class GtRecipes {
         List<FluidStack> fluidIn = new ArrayList<>();
         for (FluidStack s : fluidInputs)
             fluidIn.add(s);
-        RecipeMaps.FLUID_SOLIDFICATION_RECIPES.removeRecipe(RecipeMaps.FLUID_SOLIDFICATION_RECIPES.findRecipe(Integer.MAX_VALUE, itemIn, fluidIn));
+        RecipeMaps.FLUID_SOLIDFICATION_RECIPES.removeRecipe(RecipeMaps.FLUID_SOLIDFICATION_RECIPES.findRecipe(Integer.MAX_VALUE, itemIn, fluidIn, Integer.MAX_VALUE));
     }
 
     private static void removeRecipesByInputs(ItemStack[] itemInputs, FluidStack[] fluidInputs, int voltage) {
@@ -77,6 +77,6 @@ public class GtRecipes {
         List<FluidStack> fluidIn = new ArrayList<>();
         for (FluidStack s : fluidInputs)
             fluidIn.add(s);
-        RecipeMaps.FLUID_SOLIDFICATION_RECIPES.removeRecipe(RecipeMaps.FLUID_SOLIDFICATION_RECIPES.findRecipe(voltage, itemIn, fluidIn));
+        RecipeMaps.FLUID_SOLIDFICATION_RECIPES.removeRecipe(RecipeMaps.FLUID_SOLIDFICATION_RECIPES.findRecipe(voltage, itemIn, fluidIn, Integer.MAX_VALUE));
     }
 }
