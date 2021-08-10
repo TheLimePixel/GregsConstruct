@@ -130,7 +130,7 @@ public class Materials {
                 gregtech.api.unification.material.Materials.Tin.getFluid(1));
 
         TinkerRegistry.registerAlloy(gregtech.api.unification.material.Materials.Invar.getFluid(3),
-                gregtech.api.unification.material.Materials.Iron.getFluid(1),
+                gregtech.api.unification.material.Materials.Iron.getFluid(2),
                 gregtech.api.unification.material.Materials.Nickel.getFluid(1));
 
         TinkerRegistry.registerAlloy(gregtech.api.unification.material.Materials.TinAlloy.getFluid(2),
@@ -138,7 +138,7 @@ public class Materials {
                 gregtech.api.unification.material.Materials.Tin.getFluid(1));
 
         TinkerRegistry.registerAlloy(gregtech.api.unification.material.Materials.Invar.getFluid(3),
-                gregtech.api.unification.material.Materials.WroughtIron.getFluid(1),
+                gregtech.api.unification.material.Materials.WroughtIron.getFluid(2),
                 gregtech.api.unification.material.Materials.Nickel.getFluid(1));
 
         TinkerRegistry.registerAlloy(gregtech.api.unification.material.Materials.BatteryAlloy.getFluid(5),
@@ -156,7 +156,7 @@ public class Materials {
         TinkerRegistry.registerAlloy(gregtech.api.unification.material.Materials.CobaltBrass.getFluid(9),
                 gregtech.api.unification.material.Materials.Brass.getFluid(7),
                 gregtech.api.unification.material.Materials.Aluminium.getFluid(1),
-                gregtech.api.unification.material.Materials.Sodium.getFluid(1));
+                gregtech.api.unification.material.Materials.Cobalt.getFluid(1));
 
         TinkerRegistry.registerMelting("dustGlass", gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 1000);
         TinkerRegistry.registerMelting("dustQuartzite", gregtech.api.unification.material.Materials.Glass.getMaterialFluid(), 1000);
